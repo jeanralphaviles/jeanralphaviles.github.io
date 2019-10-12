@@ -23,6 +23,9 @@ url: "https://jeanralphaviles.github.io" # the base hostname & protocol for your
 github_username:  jeanralphaviles
 google_analytics: UA-149901169-1
 
+disqus:
+  shortname: jraviles
+
 # Build settings
 markdown: kramdown
 theme: minima

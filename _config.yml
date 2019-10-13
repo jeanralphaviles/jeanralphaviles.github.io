@@ -33,8 +33,9 @@ disqus:
 markdown: kramdown
 theme: minima
 plugins:
-  - jekyll-feed
   - github-pages
+  - jekyll-feed
+  - jekyll-sitemap
 exclude:
   - Gemfile
   - Gemfile.lock

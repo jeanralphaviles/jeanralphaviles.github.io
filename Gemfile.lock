@@ -251,6 +251,7 @@ DEPENDENCIES
   github-pages (~> 201)
   jekyll (= 3.8.5)
   jekyll-feed (~> 0.6)
+  jekyll-sitemap (~> 1.2.0)
   minima (~> 2.0)
   therubyracer
   tzinfo-data

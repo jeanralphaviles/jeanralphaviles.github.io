@@ -4,7 +4,7 @@ author: Jean-Ralph Aviles
 title: "rTorrent XML-RPC with cURL"
 description: "Issuing rTorrent XML-RPC requests with cURL"
 categories: rtorrent curl xmlrpc
-date: 2019-10-12
+date: 2019-10-13T00:00:00Z
 ---
 
 [![alt text](/assets/pictures/Torrent_Tyrannulet.jpg "Torrent Tyrannulet")](https://en.wikipedia.org/wiki/Torrent_tyrannulet)

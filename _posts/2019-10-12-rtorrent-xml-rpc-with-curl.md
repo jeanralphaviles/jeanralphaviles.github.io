@@ -3,7 +3,8 @@ layout: post
 author: Jean-Ralph Aviles
 title: "rTorrent XML-RPC with cURL"
 description: "Issuing rTorrent XML-RPC requests with cURL"
-categories: rtorrent curl xmlrpc
+categories: torrents
+tags: [rtorrent, curl, xmlrpc]
 date: 2019-10-13T00:00:00Z
 ---
 

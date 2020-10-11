@@ -5,6 +5,9 @@ last_modified_at: 2019-10-12T23:59:00Z
 permalink: /about/
 ---
 
-Random things I wanted to share with the world.
+{{ site.description }}
 
-SRE at Google since 2016.
+Senior SRE at Google since 2016. Living in Mountain View, California.
+
+* [Email](mailto:{{ site.email }}?subject=[jr.expert])
+* [Github](https://github.com/jeanralphaviles)

@@ -6,6 +6,10 @@ description: "Learn the NTP and SNTP protocol through example."
 categories: ntp
 tags: [ntp, sntp, time, protocol, rfc5905, rfc4330]
 date: 2020-10-10T12:00:00-4
+# Will work once https://github.com/jekyll/minima/pull/432 is released.
+modified_date: 2020-10-11T23:58:00-4
+# https://github.com/jekyll/minima/pull/542
+last_modified_at: 2020-10-11T23:58:00-4
 ---
 
 [![alt text](/assets/pictures/Ntp_Clock.jpg "Clock")](https://www.flickr.com/photos/matt_gibson/3281131319)
@@ -261,9 +265,8 @@ last 32 bits. These timestamps can represent instants in time over a period of
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
 
-Knowing this, the first 4 bytes `(0xe32c49ce == 3811330510)` represents the
-number of seconds elapsed since `1 January 1900`. We won't worry about fractions
-of a second.
+Knowing this, the first 4 bytes `0xe32c49ce` represents the number of seconds
+elapsed since `1 January 1900`. We won't worry about fractions of a second.
 
 With the Unix `date` command we can convert this into a human readable string.
 To do this we must first subtract the number of seconds between `1 January 1900`
@@ -274,7 +277,8 @@ there are `2208988800` seconds between these two dates.
 With simple arithmetic we can decode the timestamp.
 
 ```bash
-$ date -r $((3811330510 - 2208988800))
+$ date -d @$(( 0xe32c49ce - 2208988800 )) # GNU/Linux
+$ date -r $(( 0xe32c49ce - 2208988800 ))  # BSD/OSX
 Sat Oct 10 10:55:10 EDT 2020
 ```
 

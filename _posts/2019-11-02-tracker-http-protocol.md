@@ -6,6 +6,10 @@ description: "How Torrent clients discover peers with trackers over HTTP."
 categories: torrents
 tags: [torrent, tracker, http, curl]
 date: 2019-11-02T15:41:00-7
+# Will work once https://github.com/jekyll/minima/pull/432 is released.
+modified_date: 2020-10-11T21:16:00-4
+# https://github.com/jekyll/minima/pull/542
+last_modified_at: 2020-10-11T21:16:00-4
 ---
 
 [![alt text](/assets/pictures/Gps_Satellite.jpg "GPS Satellite")](https://commons.wikimedia.org/wiki/File:Navstar-2F.jpg)
@@ -93,8 +97,8 @@ This can be represented as an HTTP request with curl:
 
 ```bash
 # The info_hash must be specified as URL encoded hex.
-curl -s -G https://torrent.ubuntu.com/announce \
-  --data 'info_hash=%e2%46%7c%bf%02%11%92%c2%41%36%7b%89%22%30%dc%1e%05%c0%58%0e' \
+curl --get https://torrent.ubuntu.com/announce \
+  --data 'info_hash=%D1%10%1A%2B%9D%20%28%11%A0%5E%8C%57%C5%57%A2%0B%F9%74%DC%8A' \
   --data-urlencode 'peer_id=01234567890123456789' \
   --data-urlencode 'port=12345' \
   --data-urlencode 'uploaded=0' \
@@ -102,24 +106,27 @@ curl -s -G https://torrent.ubuntu.com/announce \
   --data-urlencode 'left=0'
 ```
 
-In response, the tracker will return to you a dictionary containing two keys:
-`interval` how long this client should wait before contacting the tracker again
-and `peers` a list of peers to connect to. In event of an error, a single key
-`failure`  will be populated instead.
+In response, the tracker will return to you a bencoded dictionary containing two
+keys: `interval` how long this client should wait before contacting the tracker
+again and `peers` a list of peers to connect to. In event of an error, a single
+key `failure`  will be populated instead.
 
 Optional keys: `complete` and `incomplete` can be returned representing the
 number of seeders and peers in the swarm respectively.
 
-```
+```bash
+# Continue reading for how to decode response from the tracker to this.
 {
-  "interval": 1800,
-  "peers": [{
-    "ip": "1.2.3.4",
-    "port": 51413,
-    "peer id": 0x2d5452323934302d30383930617076306f7a6e66,
-  }],
-  "complete": 2068,
-  "incomplete": 177,
+    "complete": 2068,
+    "incomplete": 177,
+    "interval": 1800,
+    "peers": [
+        {
+            "ip": "1.2.3.4",
+            "peer id": "-TR2940-0890apv0oznf",
+            "port": 51413
+        }
+    ]
 }
 ```
 
@@ -130,12 +137,12 @@ later time.
 This response from the tracker is
 [bencoded](https://en.wikipedia.org/wiki/Bencode), an encoding method used by
 BitTorrent. There aren't many bencoders out there, but this simple
-[Go Playground](https://play.golang.org/p/EQHEHBV5IsI) can parse the response
+[Go Playground](https://play.golang.org/p/seSAP10oaY2) can parse the response
 for you if you provide a hexdump of the output.
 
 ```bash
-curl -s -G https://torrent.ubuntu.com/announce \
-  --data 'info_hash=%e2%46%7c%bf%02%11%92%c2%41%36%7b%89%22%30%dc%1e%05%c0%58%0e' \
+curl --get https://torrent.ubuntu.com/announce \
+  --data 'info_hash=%D1%10%1A%2B%9D%20%28%11%A0%5E%8C%57%C5%57%A2%0B%F9%74%DC%8A' \
   --data-urlencode 'peer_id=01234567890123456789' \
   --data-urlencode 'port=12345' \
   --data-urlencode 'uploaded=0' \

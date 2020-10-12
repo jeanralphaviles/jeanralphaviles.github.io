@@ -197,7 +197,8 @@ As a hexdump, the full request packet would be:
 00000020: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 ```
 
-Exciting stuff isn't it? Save this file as `request.dump`.
+Exciting stuff isn't it? Save this file as `request.dump`, or
+[download it here](https://raw.githubusercontent.com/jeanralphaviles/jeanralphaviles.github.io/master/assets/files/request.dump).
 
 ## Sending our Request
 

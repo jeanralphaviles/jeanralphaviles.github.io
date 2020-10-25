@@ -22,6 +22,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jr.expert" # the base hostname & protocol for your site, e.g. http://example.com
 safe: true
 show_excerpts: true
+permalink: /:title:output_ext
 
 github_username:  jeanralphaviles
 google_analytics: UA-149901169-1

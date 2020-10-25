@@ -2,7 +2,6 @@
 layout: post
 author: Jean-Ralph Aviles
 title: "You Need to Timestamp Your Shell History"
-permalink: shell-history.html
 description: "Add timestamps to your shell history to create an accurate ledger of events."
 categories: tips
 tags: [history, shell, bash, timestamp, postmortem, sre]
@@ -10,7 +9,7 @@ date: 2020-10-24T21:21:00-4
 ---
 
 [![alt text](/assets/pictures/Pocketwatch.jpg "Pocketwatch in hand.")](
-{% post_url 2020-10-24-shell-history %})
+{% post_url 2020-10-24-timestamp-shell-history %})
 
 If you work with a production environment you **need** to be recording
 timestamps in your shell history. When shit hits the fan, knowing **exactly**

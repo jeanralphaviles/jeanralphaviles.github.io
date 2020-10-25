@@ -2,6 +2,7 @@
 layout: post
 author: Jean-Ralph Aviles
 title: "Handcrafting NTP Requests"
+permalink: /:categories/:year/:month/:day/:title:output_ext
 description: "Learn the NTP and SNTP protocol through example."
 categories: ntp
 tags: [ntp, sntp, time, protocol, rfc5905, rfc4330]

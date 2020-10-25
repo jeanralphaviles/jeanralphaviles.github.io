@@ -2,6 +2,7 @@
 layout: post
 author: Jean-Ralph Aviles
 title: "The Torrent Tracker HTTP Protocol"
+permalink: /:categories/:year/:month/:day/:title:output_ext
 description: "How Torrent clients discover peers with trackers over HTTP."
 categories: torrents
 tags: [torrent, tracker, http, curl]

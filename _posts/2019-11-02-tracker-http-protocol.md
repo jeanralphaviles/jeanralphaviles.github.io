@@ -13,7 +13,8 @@ modified_date: 2020-10-11T21:16:00-4
 last_modified_at: 2020-10-11T21:16:00-4
 ---
 
-[![alt text](/assets/pictures/Gps_Satellite.jpg "GPS Satellite")](https://commons.wikimedia.org/wiki/File:Navstar-2F.jpg)
+[![alt text](/assets/pictures/Gps_Satellite.jpg "GPS Satellite")](
+{% post_url 2019-11-02-tracker-http-protocol %})
 
 # What is a Torrent Tracker
 

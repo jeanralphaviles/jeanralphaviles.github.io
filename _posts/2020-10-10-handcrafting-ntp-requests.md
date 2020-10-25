@@ -13,7 +13,8 @@ modified_date: 2020-10-11T23:58:00-4
 last_modified_at: 2020-10-11T23:58:00-4
 ---
 
-[![alt text](/assets/pictures/Ntp_Clock.jpg "Clock")](https://www.flickr.com/photos/matt_gibson/3281131319)
+[![alt text](/assets/pictures/Ntp_Clock.jpg "Remember time lost cannot be regained")](
+{% post_url 2020-10-10-handcrafting-ntp-requests %})
 
 ## Introduction
 

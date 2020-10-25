@@ -9,7 +9,8 @@ tags: [rtorrent, curl, xmlrpc]
 date: 2019-10-13T00:00:00Z
 ---
 
-[![alt text](/assets/pictures/Torrent_Tyrannulet.jpg "Torrent Tyrannulet")](https://en.wikipedia.org/wiki/Torrent_tyrannulet)
+[![alt text](/assets/pictures/Torrent_Tyrannulet.jpg "Torrent Tyrannulet")](
+{% post_url 2019-10-12-rtorrent-xml-rpc-with-curl %})
 
 # rtorrent XML-RPC with cURL
 This post shows how to manually instrument [rtorrent](https://github.com/rakshasa/rtorrent)'s [XML-RPC API](https://github.com/rakshasa/rtorrent/wiki/RPC-Setup-XMLRPC). I find the usage instructions on the wiki inadequate, so I wrote my own after getting frustrated.

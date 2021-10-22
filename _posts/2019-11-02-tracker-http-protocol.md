@@ -7,10 +7,10 @@ description: "How Torrent clients discover peers with trackers over HTTP."
 categories: torrents
 tags: [torrent, tracker, http, curl]
 date: 2019-11-02T15:41:00-7
-# Will work once https://github.com/jekyll/minima/pull/432 is released.
-modified_date: 2020-10-11T21:16:00-4
-# https://github.com/jekyll/minima/pull/542
-last_modified_at: 2020-10-11T21:16:00-4
+[//]: # Will work once https://github.com/jekyll/minima/pull/432 is released.
+modified_date: 2021-10-22T12:16:00-4
+[//]: # https://github.com/jekyll/minima/pull/542
+last_modified_at: 2021-10-22T12:16:00-4
 ---
 
 [![alt text](/assets/pictures/Gps_Satellite.jpg "GPS Satellite")](
@@ -78,7 +78,7 @@ GET requests have the following URL query parameters.
     [SHA1](https://en.wikipedia.org/wiki/SHA-1) hash of an encoding of the
     ["info"](https://www.bittorrent.org/beps/bep_0003.html#peer-protocol)
     section of the torrent file.
-  * Listed as a parameter of a Magnet link.
+  * Typically, but not always, listed as a parameter of a Magnet link.
 * peer_id
   * Client-created 20 byte self-identifier. Used to identify peers.
 * ip
@@ -100,7 +100,7 @@ This can be represented as an HTTP request with curl:
 ```bash
 # The info_hash must be specified as URL encoded hex.
 curl --get https://torrent.ubuntu.com/announce \
-  --data 'info_hash=%D1%10%1A%2B%9D%20%28%11%A0%5E%8C%57%C5%57%A2%0B%F9%74%DC%8A' \
+  --data 'info_hash=%F1%FC%DC%14%62%D3%65%30%F5%26%C1%D9%40%2E%EC%91%00%B7%BA%18' \
   --data-urlencode 'peer_id=01234567890123456789' \
   --data-urlencode 'port=12345' \
   --data-urlencode 'uploaded=0' \
@@ -143,13 +143,13 @@ BitTorrent. There aren't many bencoders out there, but this simple
 for you if you provide a hexdump of the output.
 
 ```bash
-curl --get https://torrent.ubuntu.com/announce \
-  --data 'info_hash=%D1%10%1A%2B%9D%20%28%11%A0%5E%8C%57%C5%57%A2%0B%F9%74%DC%8A' \
+curl --silent --get https://torrent.ubuntu.com/announce \
+  --data 'info_hash=%F1%FC%DC%14%62%D3%65%30%F5%26%C1%D9%40%2E%EC%91%00%B7%BA%18' \
   --data-urlencode 'peer_id=01234567890123456789' \
   --data-urlencode 'port=12345' \
   --data-urlencode 'uploaded=0' \
   --data-urlencode 'downloaded=0' \
-  --data-urlencode 'left=0' | hexdump -ve '1/1 "%.2x"'
+  --data-urlencode 'left=0' | hexdump -ve '1/1 "%.2x"' && echo
 ```
 
 [^1]: <https://www.bittorrent.org/beps/bep_0000.html>

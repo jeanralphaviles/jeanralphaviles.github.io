@@ -200,7 +200,7 @@ Putting all the query parameters together, we can generate the following
 live Meteogram[1] for
 [Park City, Utah](https://en.wikipedia.org/wiki/Park_City,_Utah).
 
-![](https://forecast.weather.gov/meteograms/Plotter.php?lat=40.6521&lon=-111.5067&wfo=SLC&zcode=UTZ108&gset=30&gdiff=10&unit=0&tinfo=MY7&ahour=0&pcmd=11011111111110000000000000000000000000000000000000000000000&lg=en&indu=1!1!1&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6)
+[![](https://forecast.weather.gov/meteograms/Plotter.php?lat=40.6521&lon=-111.5067&wfo=SLC&zcode=UTZ108&gset=30&gdiff=10&unit=0&tinfo=MY7&ahour=0&pcmd=11011111111110000000000000000000000000000000000000000000000&lg=en&indu=1!1!1&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6)](https://forecast.weather.gov/meteograms/Plotter.php?lat=40.6521&lon=-111.5067&wfo=SLC&zcode=UTZ108&gset=30&gdiff=10&unit=0&tinfo=MY7&ahour=0&pcmd=11011111111110000000000000000000000000000000000000000000000&lg=en&indu=1!1!1&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6)
 
 [1]:
 <https://forecast.weather.gov/meteograms/Plotter.php?lat=40.6521&lon=-111.5067&wfo=SLC&zcode=UTZ108&gset=30&gdiff=10&unit=0&tinfo=MY7&ahour=0&pcmd=11011111111110000000000000000000000000000000000000000000000&lg=en&indu=1!1!1&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6>

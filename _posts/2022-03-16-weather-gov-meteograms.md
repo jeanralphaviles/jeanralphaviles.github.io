@@ -182,7 +182,7 @@ following graphs. Each value is separated by an `!`.
 
 | Bit | Graph             | 0  | 1   | 2             | 3             |
 |-----|-------------------|----|-----|---------------|---------------|
-| 0   | Surface Wind      | kt | mph | km/h          | ms/           |
+| 0   | Surface Wind      | kt | mph | km/h          | m/s           |
 | 1   | Transport Wind    | kt | mph | km/h          | m/s           |
 | 2   | 20ft Wind         | kt | mph | km/h          | m/s           |
 | 3   | Mixing Height     | ft | m   | no label (ft) | no label (ft) |

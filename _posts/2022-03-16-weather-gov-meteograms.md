@@ -6,6 +6,7 @@ description: "Reverse engineering the undocumented National Weather Service Mete
 categories: reverse_engineering
 tags: [reverse engineering weather.gov meteogram api national weather service nws]
 date: 2022-03-16T23:23:00-6
+last_modified_at: 2023-03-13T20:34:00-7
 ---
 
 [![alt text](/assets/pictures/meteogram.png "National Weather Service Meteogram.")]({% post_url 2022-03-16-weather-gov-meteograms %})
@@ -49,11 +50,11 @@ greater detail.
 | pcmd   | 59 bits controlling which graphs to display.                                                               | 11011111111110000000000000000000000000000000000000000000000 |
 | lg     | Language. English (en) or Spanish (sp). Optional.                                                          | en                                                          |
 | indu   | Up to four integers controlling units of Surface Wind, Trans Wind, 20ft Wind, and Mixing Height. Optional. | 1!1!1                                                       |
-| dd     | Display meteogram with dashes/dots if dd=1. Optional.                                                       | 0                                                           |
+| dd     | Display meteogram with dashes/dots if dd=1. Optional.                                                      | 0                                                           |
 | bw     | Display meteogram in black and white if bw=1. Optional.                                                    | 0                                                           |
 | hrspan | Hours to display. 6 <= hrspan <= 48. Optional.                                                             | 48                                                          |
-| pqpfhr | Unknown use. Optional.                                                                                     | 6                                                           |
-| psnwhr | Unknown use. Optional.                                                                                     | 6                                                           |
+| pqpfhr | Prob QPF Aggregation Window, hours. 3, 6, 12, 24. Optional.                                                | 6                                                           |
+| psnwhr | Prob Snow Aggregation Window, hours. 3, 6, 12, 24. Optional.                                               | 6                                                           |
 
 ## wfo
 
@@ -115,65 +116,65 @@ in the generated PNG file. Each bit is described below.
 
 | Bit | Graph                               |
 |-----|-------------------------------------|
-|   0 | Temperature (°F)                    |
-|   1 | Dewpoint (°F)                       |
-|   2 | Heat Index (°F)                     |
-|   3 | Wind Chill (°F)                     |
-|   4 | Surface Wind                        |
-|   5 | Sky Cover (%)                       |
-|   6 | Precipitation Potential (%)         |
-|   7 | Relative Humidity (%)               |
-|   8 | Rain                                |
-|   9 | Thunder                             |
-|  10 | Snow                                |
-|  11 | Freezing Rain                       |
-|  12 | Sleet                               |
-|  13 | Freezing Spray                      |
-|  14 | Fog                                 |
-|  15 | Ceiling Height (x100ft)             |
-|  16 | Visibility (mi)                     |
-|  17 | Significant Wave Height (ft)        |
-|  18 | Wave Period (sec)                   |
-|  19 | Empty Graph                         |
-|  20 | Mixing Height (x100ft)              |
-|  21 | Haines Index                        |
-|  22 | Lightning Activity Level            |
-|  23 | Transport Wind (mph)                |
-|  24 | 20ft Wind (mph)                     |
-|  25 | Ventilation Rate (x1000 mph-ft)     |
-|  26 | Swell Height (ft)                   |
-|  27 | Swell Period (sec)                  |
-|  28 | Swell 2 Height (ft)                 |
-|  29 | Swell 2 Period (sec)                |
-|  30 | Wind Wave Height (ft)               |
-|  31 | Dispersion Index                    |
-|  32 | Pressure (in)                       |
-|  33 | Prob Wind 15mph                     |
-|  34 | Prob Wind 25mph                     |
-|  35 | Prob Wind 35mph                     |
-|  36 | Prob Wind 45mph                     |
-|  37 | Prob Wind Gust 20mph                |
-|  38 | Prob Wind Gust 30mph                |
-|  39 | Prob Wind Gust 40mph                |
-|  40 | Prob Wind Gust 50mph                |
-|  41 | Prob Wind Gust 60mph                |
-|  42 | 6hr Prob QPF 0.1                    |
-|  43 | 6hr Prob QPF 0.25                   |
-|  44 | 6hr Prob QPF 0.5                    |
-|  45 | 6hr Prob QPF 1.00                   |
-|  46 | 6hr Prob QPF 2.00                   |
-|  47 | 6hr Prob Snow 0.1in                 |
-|  48 | 6hr Prob Snow 1in                   |
-|  49 | 6hr Prob Snow 3in                   |
-|  50 | 6hr Prob Snow 6in                   |
-|  51 | 6hr Prob Snow 12in                  |
-|  52 | Grassland Fire Danger Index         |
-|  53 | Thunder Potential                   |
-|  54 | Davis Stability Index               |
-|  55 | Atmospheric Dispersion Index        |
-|  56 | Low Visibility Ocurrence Risk Index |
-|  57 | Turner Stability Index              |
-|  58 | Red Flag Threat Index               |
+| 0   | Temperature (°F)                    |
+| 1   | Dewpoint (°F)                       |
+| 2   | Heat Index (°F)                     |
+| 3   | Wind Chill (°F)                     |
+| 4   | Surface Wind                        |
+| 5   | Sky Cover (%)                       |
+| 6   | Precipitation Potential (%)         |
+| 7   | Relative Humidity (%)               |
+| 8   | Rain                                |
+| 9   | Thunder                             |
+| 10  | Snow                                |
+| 11  | Freezing Rain                       |
+| 12  | Sleet                               |
+| 13  | Freezing Spray                      |
+| 14  | Fog                                 |
+| 15  | Ceiling Height (x100ft)             |
+| 16  | Visibility (mi)                     |
+| 17  | Significant Wave Height (ft)        |
+| 18  | Wave Period (sec)                   |
+| 19  | Empty Graph                         |
+| 20  | Mixing Height (x100ft)              |
+| 21  | Haines Index                        |
+| 22  | Lightning Activity Level            |
+| 23  | Transport Wind (mph)                |
+| 24  | 20ft Wind (mph)                     |
+| 25  | Ventilation Rate (x1000 mph-ft)     |
+| 26  | Swell Height (ft)                   |
+| 27  | Swell Period (sec)                  |
+| 28  | Swell 2 Height (ft)                 |
+| 29  | Swell 2 Period (sec)                |
+| 30  | Wind Wave Height (ft)               |
+| 31  | Dispersion Index                    |
+| 32  | Pressure (in)                       |
+| 33  | Prob Wind 15mph                     |
+| 34  | Prob Wind 25mph                     |
+| 35  | Prob Wind 35mph                     |
+| 36  | Prob Wind 45mph                     |
+| 37  | Prob Wind Gust 20mph                |
+| 38  | Prob Wind Gust 30mph                |
+| 39  | Prob Wind Gust 40mph                |
+| 40  | Prob Wind Gust 50mph                |
+| 41  | Prob Wind Gust 60mph                |
+| 42  | Prob QPF 0.1                        |
+| 43  | Prob QPF 0.25                       |
+| 44  | Prob QPF 0.5                        |
+| 45  | Prob QPF 1.00                       |
+| 46  | Prob QPF 2.00                       |
+| 47  | Prob Snow 0.1in.                    |
+| 48  | Prob Snow 1in.                      |
+| 49  | Prob Snow 3in.                      |
+| 50  | Prob Snow 6in.                      |
+| 51  | Prob Snow 12in.                     |
+| 52  | Grassland Fire Danger Index         |
+| 53  | Thunder Potential                   |
+| 54  | Davis Stability Index               |
+| 55  | Atmospheric Dispersion Index        |
+| 56  | Low Visibility Ocurrence Risk Index |
+| 57  | Turner Stability Index              |
+| 58  | Red Flag Threat Index               |
 
 ## indu
 
